@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Add Feedback</title>
+    <link rel="stylesheet" href="style1.css" />
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        /* CSS styles */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+        
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Body styles */
+        body {
+            background: rgb(216, 208, 208);
+        }
+
+        /* Container styles */
+        .container {
+            display: flex;
+            width: 1165px;
+            margin: auto;
+        }
+
+        /* Navigation styles */
+        nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 350px;
+            height: 120vh;
+            background: #fff;
+        }
+
+        .navbar {
+            width: 180%;
+            margin: 0 auto;
+        }
+
+        .logo {
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .logo h1 {
+            margin-left: 1rem;
+            text-transform: uppercase;
+        }
+
+        ul {
+            margin: 0 auto;
+        }
+
+        li {
+            padding-bottom: 2rem;
+        }
+
+        li a {
+            font-size: 16px;
+            color: rgb(85, 83, 83);
+        }
+
+        nav i {
+            width: 50px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .logout {
+            position: absolute;
+            margin-bottom: 60px;
+        }
+
+        /* Main section styles */
+        .main {
+            width: 100%;
+        }
+
+        .main-top {
+            width: 110%;
+            background: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgb(43, 43, 43);
+            position: relative;
+        }
+
+        .title-and-profile {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .Admin_profile_circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #d0d3d0;
+            color: white;
+            font-size: 24px;
+        }
+
+        h3 {
+            text-align: center;
+            margin: 0;
+            flex: 1;
+        }
+
+        .main-body {
+            padding: 10px;
+        }
+
+        h1 {
+            margin: 20px 10px;
+        }
+
+        .search_bar {
+            display: flex;
+            padding: 10px;
+            justify-content: space-between;
+        }
+
+        .search_bar input {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid rgb(190, 190, 190);
+        }
+
+        .search_bar input:focus {
+            border: 1px solid blueviolet;
+        }
+
+        .search_bar select {
+            border: 1px solid rgb(190, 190, 190);
+            padding: 10px;
+            margin-left: 2rem;
+        }
+
+        .search_bar .filter {
+            width: 300px;
+        }
+
+        /* Form styles */
+        form {
+            max-width: 900px;
+            margin-left: 40px;
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        } 
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="radio"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"],input[type="reset"],input[type="back"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"],input[type="reset"],input[type="back"]:hover {
+            background-color: #0056b3;
+        }
+        /* Add this CSS to extend the width of the feedback form */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="" alt="Online Courses">
+                    <h1>Online Courses</h1>
+                </div>
+                <ul>
+                    <li><a href="Manage_Courses">
+                            <i class="fas fa-user"></i>
+                            <span class="nav-item">Manage_Courses</span>
+                        </a>
+                    </li>
+                    <li><a href="Manage_User">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="nav-item">Manage_User</span>
+                        </a>
+                    </li>
+                    <li><a href="Manage_Feedback">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="nav-item">Manage_Feedback</span>
+                        </a>
+                    </li>
+                    <li><a href="Manage_Enquiry_details">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="nav-item">Manage_Enquiry_details</span>
+                        </a>
+                    </li>
+                    <li><a href="Manage_Enquiry_details">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="nav-item">Manage_Payment_details</span>
+                        </a>
+                    </li>
+                    <li><a href="Manage_Enquiry_details">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="nav-item">Reports</span>
+                        </a>
+                    </li>
+                    <li><a href="index" class="logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="nav-item">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="main">
+          <div class="main-top">
+            <div class="title-and-profile">
+                <h3>Admin Dashboard</h3>
+                <div class="Admin_profile_circle">
+                    <a href="admin_profile.html">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+            <div class="main-body">
+                <h1>Additional Contents...</h1>
+                <div class="search_bar">
+                    <input type="search" placeholder="Search additional content here...">
+                    <select name="" id="">
+                        <option>Content</option>
+                        <a href="customerdata.html"><option>Courses Details</option></a>
+                        <a href="paymentdata.html"><option>Payment Details</option></a>
+                        <a href="feedbackdata.html"><option>Feedback</option></a>
+                        <a href="enquirydata.html"><option>Enquiry</option></a>
+                        <a href="index.html"><option>Logout</option></a>
+                    </select>
+                    <select class="filter">
+                        <option>Filter</option>
+                        <option>user_1</option>
+                        <option>user_2</option>
+                        <option>user_3</option>
+                        <option>user_4</option>
+                        <option>user_5</option>
+                        <option>user_6</option>
+                        <option>user_7</option>
+                    </select>
+                </div>
+    
+         
+    
+                
+                <form id="feedbackForm">
+                    <h2>Add Feedback</h2>
+                <br>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="text" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Are you satisfied with our service?</label>
+                        <div>
+                            <input type="radio" id="yes" name="satisfaction" value="yes">
+                            <label for="yes">Yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="no" name="satisfaction" value="no">
+                            <label for="no">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="suggestion">Your Suggestion:</label><br>
+                        <textarea id="suggestion" name="suggestion" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                        <input type="back" value="Back">
+
+                    </div>
+                </form>
+        
+        </div>
+    </section>
+</div>
+</body>
+</html>
