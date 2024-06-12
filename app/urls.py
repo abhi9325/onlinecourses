@@ -17,7 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views 
-
+from .views import BooksDetailView
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
      path('', views.index, name='index'),
      path('admin_dashboard', views.admin_dashboard, name='admin_dashboard'),
@@ -28,8 +30,10 @@ urlpatterns = [
      path('feedback', views.feedback, name='feedback'),
      path('Add_courses', views.Add_courses, name='Add_courses'),
      path('addCourse', views.addCourse, name='addCourse'),
-     path('Register_page', views.Register_page, name='Register_page')
-     
-
+     path('Register_page', views.Register_page, name='Register_page'),
+     path('detail/<int:pk>/', views.detail, name='detail'),
+     path('<int:pk>/', BooksDetailView.as_view(), name = 'detail'),
 
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

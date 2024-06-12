@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import add_courses
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 def index(request):
@@ -50,3 +52,17 @@ def Manage_Courses(request):
 
 def Register_page(request):
     return render(request,"Register_page.html")
+
+def detail(request, pk):
+    obj = get_object_or_404(add_courses, pk=pk)
+    #reviews = Review.objects.filter(product=obj).order_by('-created_at')  # Get reviews for the product
+    return render(request, 'detail.html', {'obj': obj, 'product_name': obj.name, 'product_price': obj.price,})
+
+class BooksListView(ListView):
+    model = add_courses
+    template_name = 'index.html'
+
+
+class BooksDetailView(DetailView):
+    model = add_courses
+    template_name = 'detail.html'
